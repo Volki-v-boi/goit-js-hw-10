@@ -15,6 +15,8 @@ import iziToast from 'izitoast';
 // Додатковий імпорт стилів
 import 'izitoast/dist/css/iziToast.min.css';
 
+let userSelectedDate;
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -22,15 +24,7 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     console.log(selectedDates[0]);
-  },
-};
 
-flatpickr('#datetime-picker', options);
-
-let userSelectedDate;
-
-flatpickr('#datetime-picker', {
-  onClose: function (selectedDates) {
     userSelectedDate = selectedDates[0];
     const currentDate = new Date();
     if (userSelectedDate < currentDate) {
@@ -40,7 +34,9 @@ flatpickr('#datetime-picker', {
       startButton.disabled = false;
     }
   },
-});
+};
+
+flatpickr('#datetime-picker', options);
 
 function addLeadingZero(value) {
   return String(value).padStart(2, '0');
