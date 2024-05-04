@@ -1,0 +1,29 @@
+body {
+  background-color: azure;
+  padding: 24px;
+}
+
+section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+}
+
+.field {
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.value {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.label {
+  font-size: 14px;
+}

@@ -1,4 +1,5 @@
-document.querySelector('.form').addEventListener('submit', function (event) {
+const form = document.querySelector('.form');
+form.addEventListener('submit', function (event) {
   event.preventDefault();
 
   const delay = parseInt(document.querySelector('input[name="delay"]').value);
@@ -22,7 +23,13 @@ document.querySelector('.form').addEventListener('submit', function (event) {
     })
     .catch(delay => {
       iziToast.error({ title: `❌ Rejected promise in ${delay}ms` });
-    });
+    })
+    .finally(
+      setTimeout(() => {
+        document.querySelector('input[name="delay"]').value = '';
+        document.querySelector('input[name="state"]:checked').checked = false;
+      }, 0)
+    );
 });
 
 // Описаний у документації
